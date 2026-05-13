@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll in Course | BIeasy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .enroll-container {
+            max-width: 900px;
+            margin: 140px auto 80px;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 40px;
+        }
+        .enroll-form {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+        .form-section {
+            margin-bottom: 32px;
+        }
+        .form-section h3 {
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--background);
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        .summary-card {
+            background: var(--primary-dark);
+            color: white;
+            padding: 32px;
+            border-radius: var(--radius-lg);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 12px 0;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#1e40af"/>
+                    <path d="M12 28V12H16C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20H12M12 20H16C18.2091 20 20 21.7909 20 24C20 26.2091 18.2091 28 16 28H12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28 12V28" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <span>BIeasy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="subjects.html">Subjects</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="student-portal.html">Student Portal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="enroll-container">
+            <div class="enroll-form">
+                <h2>Course Enrollment</h2>
+                <p class="text-muted" style="margin-bottom: 32px;">Please provide your details to complete the enrollment process.</p>
+                
+                <form id="enrollment-form" action="https://formsubmit.co/csarts3537@gmail.com" method="POST">
+                    <div class="form-section">
+                        <h3>Student Information</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required placeholder="John">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required placeholder="Doe">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Select Package</h3>
+                        <div class="form-group">
+                            <label for="package">Choose your learning path</label>
+                            <select id="package-select" name="package" required>
+                                <option value="" data-price="0">-- Select a Package --</option>
+                                <option value="mpc" data-price="4999">MPC Package (Maths+Physics+Chemistry) - ₹4,999</option>
+                                <option value="bipc" data-price="4999">BiPC Package (Biology+Physics+Chemistry) - ₹4,999</option>
+                                <option value="combo" data-price="7999">All-in-One Combo Offer - ₹7,999</option>
+                                <option value="maths" data-price="1499">Individual Mathematics - ₹1,499</option>
+                                <option value="physics" data-price="1499">Individual Physics - ₹1,499</option>
+                                <option value="biology" data-price="1499">Individual Biology - ₹1,499</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Payment Confirmation</h3>
+                        <p class="text-muted" style="font-size: 0.9rem; margin-bottom: 16px;">After submitting this form, you will receive payment instructions via email. Please upload your payment screenshot to our WhatsApp support.</p>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" required style="width: auto; margin-right: 10px;">
+                                I agree to the terms and conditions and understand that my access will be activated after payment verification.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 1.125rem;">Complete Enrollment</button>
+                </form>
+            </div>
+
+            <aside class="summary-card">
+                <h3>Order Summary</h3>
+                <div style="margin-top: 24px;">
+                    <div class="price-row">
+                        <span>Selected Package</span>
+                        <span id="summary-package">None</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Subtotal</span>
+                        <span id="summary-price">₹0</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Platform Fee</span>
+                        <span>₹0</span>
+                    </div>
+                    <div class="total-row">
+                        <span>Total</span>
+                        <span id="summary-total">₹0</span>
+                    </div>
+                </div>
+                <div style="margin-top: 32px; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.85rem;">
+                    <p>🔒 Secure Enrollment</p>
+                    <p style="margin-top: 8px;">Access granted within 2-4 hours after payment confirmation.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer style="margin-top: 80px;">
+        <div class="container footer-bottom text-center">
+            <p>&copy; 2026 BIeasy Educational Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Package price update logic
+        const packageSelect = document.getElementById('package-select');
+        const summaryPackage = document.getElementById('summary-package');
+        const summaryPrice = document.getElementById('summary-price');
+        const summaryTotal = document.getElementById('summary-total');
+
+        packageSelect.addEventListener('change', () => {
+            const selectedOption = packageSelect.options[packageSelect.selectedIndex];
+            const price = selectedOption.getAttribute('data-price');
+            const packageName = selectedOption.text.split(' - ')[0];
+
+            if (price > 0) {
+                summaryPackage.innerText = packageName;
+                summaryPrice.innerText = '₹' + parseInt(price).toLocaleString();
+                summaryTotal.innerText = '₹' + parseInt(price).toLocaleString();
+            } else {
+                summaryPackage.innerText = 'None';
+                summaryPrice.innerText = '₹0';
+                summaryTotal.innerText = '₹0';
+            }
+        });
+
+        // Pre-select package from URL if present
+        const urlParams = new URLSearchParams(window.location.search);
+        const pkg = urlParams.get('pkg');
+        if (pkg) {
+            packageSelect.value = pkg;
+            packageSelect.dispatchEvent(new Event('change'));
+        }
+    </script>
+</body>
+</html>

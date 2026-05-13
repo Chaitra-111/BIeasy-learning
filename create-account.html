@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Account | BIeasy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .account-container {
+            max-width: 450px;
+            margin: 140px auto 80px;
+            background: white;
+            padding: 48px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background-color: #f8fafc;
+        }
+        .form-group input:read-only {
+            background-color: #f1f5f9;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#1e40af"/>
+                    <path d="M12 28V12H16C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20H12M12 20H16C18.2091 20 20 21.7909 20 24C20 26.2091 18.2091 28 16 28H12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28 12V28" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <span>BIeasy</span>
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="account-container">
+            <h2 style="margin-bottom: 12px;">Create Your Account</h2>
+            <p class="text-muted" style="margin-bottom: 32px;">Set a password to access your dashboard.</p>
+            
+            <form id="create-account-form">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="password">Create Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Min 6 characters" minlength="6">
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required placeholder="Re-enter password">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px;">Complete Registration</button>
+            </form>
+        </div>
+    </main>
+
+    <footer style="margin-top: 80px;">
+        <div class="container footer-bottom text-center">
+            <p>&copy; 2026 BIeasy Educational Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Get email from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get('email');
+        if (email) {
+            document.getElementById('email').value = email;
+        } else {
+            window.location.href = 'enroll.html';
+        }
+
+        const form = document.getElementById('create-account-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const pass = document.getElementById('password').value;
+            const confirm = document.getElementById('confirmPassword').value;
+
+            if (pass !== confirm) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Save account and session
+            localStorage.setItem('bieasy_account_' + email, JSON.stringify({
+                email: email,
+                password: pass,
+                createdAt: new Date().toISOString()
+            }));
+
+            localStorage.setItem('bieasy_student', JSON.stringify({
+                name: email.split('@')[0],
+                email: email,
+                isLoggedIn: true
+            }));
+
+            alert('Account created successfully!');
+            window.location.href = 'student-portal.html';
+        });
+    </script>
+</body>
+</html>

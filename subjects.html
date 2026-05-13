@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Subjects | BIeasy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#1e40af"/>
+                    <path d="M12 28V12H16C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20H12M12 20H16C18.2091 20 20 21.7909 20 24C20 26.2091 18.2091 28 16 28H12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28 12V28" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <span>BIeasy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="subjects.html" class="active">Subjects</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="teacher-portal.html">Teachers</a></li>
+                <li><a href="student-portal.html">Student Portal</a></li>
+                <li><a href="contact.html" class="btn btn-primary" style="padding: 10px 20px; color: white;">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: 140px; background: var(--gradient-soft);">
+            <div class="container text-center">
+                <h1 style="font-size: 3rem; margin-bottom: 16px;">Explore Subjects</h1>
+                <p class="text-muted" style="max-width: 700px; margin: 0 auto;">Choose from a wide range of subjects designed to help you excel in your academic journey.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="grid-subjects">
+                    <!-- Mathematics -->
+                    <div class="card subject-card">
+                        <div class="subject-icon">∑</div>
+                        <h3>Mathematics</h3>
+                        <p class="text-muted">Master Calculus, Algebra, and Statistics with step-by-step guidance.</p>
+                        <div style="margin-top: 20px; font-size: 0.9rem; color: var(--primary);">
+                            <p><strong>Type:</strong> Recorded + Live</p>
+                            <p><strong>Mentor:</strong> Dr. Sarah J.</p>
+                        </div>
+                        <a href="enroll.html?pkg=maths" class="btn btn-primary" style="margin-top: 24px; width: 100%; text-align: center;">Enroll Now</a>
+                    </div>
+                    
+                    <!-- Physics -->
+                    <div class="card subject-card">
+                        <div class="subject-icon">⚛</div>
+                        <h3>Physics</h3>
+                        <p class="text-muted">Understand the laws of the universe through conceptual clarity.</p>
+                        <div style="margin-top: 20px; font-size: 0.9rem; color: var(--primary);">
+                            <p><strong>Type:</strong> Live Sessions</p>
+                            <p><strong>Mentor:</strong> Prof. Alan K.</p>
+                        </div>
+                        <a href="enroll.html?pkg=physics" class="btn btn-primary" style="margin-top: 24px; width: 100%; text-align: center;">Enroll Now</a>
+                    </div>
+
+                    <!-- Chemistry -->
+                    <div class="card subject-card">
+                        <div class="subject-icon">🧪</div>
+                        <h3>Chemistry</h3>
+                        <p class="text-muted">From reactions to molecular structures, learn it all with us.</p>
+                        <div style="margin-top: 20px; font-size: 0.9rem; color: var(--primary);">
+                            <p><strong>Type:</strong> Recorded Classes</p>
+                            <p><strong>Mentor:</strong> Dr. Emily W.</p>
+                        </div>
+                        <a href="enroll.html?pkg=chemistry" class="btn btn-primary" style="margin-top: 24px; width: 100%; text-align: center;">Enroll Now</a>
+                    </div>
+
+                    <!-- Biology -->
+                    <div class="card subject-card">
+                        <div class="subject-icon">🧬</div>
+                        <h3>Biology</h3>
+                        <p class="text-muted">Explore the wonders of life sciences and human physiology.</p>
+                        <div style="margin-top: 20px; font-size: 0.9rem; color: var(--primary);">
+                            <p><strong>Type:</strong> Recorded + Live</p>
+                            <p><strong>Mentor:</strong> Dr. Robert L.</p>
+                        </div>
+                        <a href="enroll.html?pkg=biology" class="btn btn-primary" style="margin-top: 24px; width: 100%; text-align: center;">Enroll Now</a>
+                    </div>
+
+                    <!-- Zoology -->
+                    <div class="card subject-card">
+                        <div class="subject-icon">🦁</div>
+                        <h3>Zoology</h3>
+                        <p class="text-muted">Detailed study of animal behavior, structure, and evolution.</p>
+                        <div style="margin-top: 20px; font-size: 0.9rem; color: var(--primary);">
+                            <p><strong>Type:</strong> Live Workshops</p>
+                            <p><strong>Mentor:</strong> Prof. Maria G.</p>
+                        </div>
+                        <a href="enroll.html?pkg=zoology" class="btn btn-primary" style="margin-top: 24px; width: 100%; text-align: center;">Enroll Now</a>
+                    </div>
+
+                    <!-- Botany -->
+                    <div class="card subject-card">
+                        <div class="subject-icon">🌿</div>
+                        <h3>Botany</h3>
+                        <p class="text-muted">Scientific study of plant life and ecological systems.</p>
+                        <div style="margin-top: 20px; font-size: 0.9rem; color: var(--primary);">
+                            <p><strong>Type:</strong> Recorded Series</p>
+                            <p><strong>Mentor:</strong> Dr. Mark P.</p>
+                        </div>
+                        <a href="enroll.html?pkg=botany" class="btn btn-primary" style="margin-top: 24px; width: 100%; text-align: center;">Enroll Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="margin-top: 80px;">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="color: white;">BIeasy</a>
+                <p>Empowering students and teachers through quality online education. Modern, accessible, and simple.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="subjects.html">All Subjects</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="student-portal.html">Student Portal</a></li>
+                    <li><a href="teacher-portal.html">Teacher Portal</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li>📧 support@bieasy.com</li>
+                    <li>📞 +91 98765 43210</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom text-center">
+            <p>&copy; 2026 BIeasy Educational Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

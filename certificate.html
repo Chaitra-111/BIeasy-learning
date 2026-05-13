@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Certificate | BIeasy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .certificate-outer {
+            padding: 40px;
+            background: #fff;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .certificate {
+            border: 20px solid var(--primary);
+            padding: 60px;
+            position: relative;
+            text-align: center;
+            background: #fff;
+        }
+        .certificate::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 2px solid var(--accent);
+        }
+        .cert-header .logo {
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .cert-title {
+            font-size: 3.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .cert-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+        .student-name {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 4rem;
+            color: var(--primary);
+            margin: 32px 0;
+            border-bottom: 2px solid #eee;
+            display: inline-block;
+            min-width: 400px;
+        }
+        .cert-details {
+            margin: 40px 0;
+            font-size: 1.1rem;
+        }
+        .cert-footer {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 60px;
+            align-items: flex-end;
+        }
+        .signature {
+            border-top: 1px solid #333;
+            width: 200px;
+            padding-top: 10px;
+        }
+        .signature-text {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+        .seal {
+            width: 100px;
+            height: 100px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 0.8rem;
+            border: 4px double white;
+            transform: rotate(-15deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#1e40af"/>
+                    <path d="M12 28V12H16C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20H12M12 20H16C18.2091 20 20 21.7909 20 24C20 26.2091 18.2091 28 16 28H12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28 12V28" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <span>BIeasy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="subjects.html">Subjects</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="student-portal.html">Student Portal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="section" style="padding-top: 140px; background: #eee;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 40px;">
+                <h1>Your Achievement</h1>
+                <p class="text-muted">Download or print your professional completion certificate.</p>
+                <div style="margin-top: 24px; display: flex; gap: 16px; justify-content: center;">
+                    <button class="btn btn-primary" onclick="window.print()">Print Certificate</button>
+                    <button class="btn btn-outline">Download PDF</button>
+                </div>
+            </div>
+
+            <div class="certificate-outer">
+                <div class="certificate" id="cert-to-print">
+                    <div class="cert-header">
+                        <div class="logo">
+                            <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="40" height="40" rx="8" fill="#1e40af"/>
+                                <path d="M12 28V12H16C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20H12M12 20H16C18.2091 20 20 21.7909 20 24C20 26.2091 18.2091 28 16 28H12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M28 12V28" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                            <span>BIeasy</span>
+                        </div>
+                        <h1 class="cert-title">Certificate</h1>
+                        <p class="cert-subtitle">OF COURSE COMPLETION</p>
+                    </div>
+
+                    <p>This is to certify that</p>
+                    <h2 class="student-name">Aditya R.</h2>
+                    
+                    <p class="cert-details">
+                        has successfully completed the comprehensive course on <br>
+                        <strong style="color: var(--primary-dark); font-size: 1.5rem;">Advanced Mathematics & Calculus</strong><br>
+                        demonstrating exceptional dedication and technical proficiency.
+                    </p>
+
+                    <div class="cert-footer">
+                        <div class="signature">
+                            <div class="signature-text">Dr. Sarah J.</div>
+                            <strong>Lead Mentor</strong>
+                        </div>
+                        
+                        <div class="seal">
+                            BIEASY<br>VERIFIED
+                        </div>
+
+                        <div class="signature">
+                            <div class="signature-text">BIeasy Ed.</div>
+                            <strong>Platform Director</strong>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 40px; font-size: 0.8rem; color: #999;">
+                        Issued on May 11, 2026 | Certificate ID: BI-2026-8842-AR
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="margin-top: 80px;">
+        <div class="container footer-bottom text-center">
+            <p>&copy; 2026 BIeasy Educational Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

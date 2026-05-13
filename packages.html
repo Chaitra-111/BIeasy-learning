@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Packages | BIeasy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        .package-card {
+            border: 2px solid transparent;
+            position: relative;
+        }
+        .package-card.featured {
+            border-color: var(--primary-light);
+            transform: scale(1.05);
+        }
+        .package-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-light);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 20px 0;
+        }
+        .benefit-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+        .benefit-list li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: 800;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#1e40af"/>
+                    <path d="M12 28V12H16C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20H12M12 20H16C18.2091 20 20 21.7909 20 24C20 26.2091 18.2091 28 16 28H12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28 12V28" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <span>BIeasy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="subjects.html">Subjects</a></li>
+                <li><a href="packages.html" class="active">Packages</a></li>
+                <li><a href="teacher-portal.html">Teachers</a></li>
+                <li><a href="student-portal.html">Student Portal</a></li>
+                <li><a href="contact.html" class="btn btn-primary" style="padding: 10px 20px; color: white;">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: 140px; background: var(--gradient-soft);">
+            <div class="container text-center">
+                <h1 style="font-size: 3rem; margin-bottom: 16px;">Affordable Learning Packages</h1>
+                <p class="text-muted" style="max-width: 700px; margin: 0 auto;">Get the best value by choosing our comprehensive subject bundles tailored for your success.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="package-grid">
+                    <!-- MPC Package -->
+                    <div class="card package-card featured">
+                        <h2 style="color: var(--primary);">MPC Package</h2>
+                        <p class="text-muted">Maths + Physics + Chemistry</p>
+                        <div class="price-tag">₹4,999 <span style="font-size: 1rem; font-weight: 500;">/ year</span></div>
+                        <ul class="benefit-list">
+                            <li>200+ Recorded Sessions</li>
+                            <li>Weekly Live Zoom Classes</li>
+                            <li>Doubt Clearing Portal</li>
+                            <li>Comprehensive PDF Notes</li>
+                            <li>Mock Test Series</li>
+                        </ul>
+                        <a href="enroll.html?pkg=mpc" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 30px; box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);">Enroll MPC Bundle</a>
+                    </div>
+
+                    <!-- BiPC Package -->
+                    <div class="card package-card">
+                        <h2 style="color: var(--primary);">BiPC Package</h2>
+                        <p class="text-muted">Biology + Physics + Chemistry</p>
+                        <div class="price-tag">₹4,999 <span style="font-size: 1rem; font-weight: 500;">/ year</span></div>
+                        <ul class="benefit-list">
+                            <li>Zoology & Botany Specializations</li>
+                            <li>Weekly Live Zoom Classes</li>
+                            <li>Doubt Clearing Portal</li>
+                            <li>Interactive 3D Biology Models</li>
+                            <li>Mock Test Series</li>
+                        </ul>
+                        <a href="enroll.html?pkg=bipc" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 30px; box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);">Enroll BiPC Bundle</a>
+                    </div>
+
+                    <!-- Combo Offer -->
+                    <div class="card package-card">
+                        <h2 style="color: var(--primary);">All-in-One Combo</h2>
+                        <p class="text-muted">Everything we offer</p>
+                        <div class="price-tag">₹7,999 <span style="font-size: 1rem; font-weight: 500;">/ year</span></div>
+                        <ul class="benefit-list">
+                            <li>Access to All Subjects</li>
+                            <li>Premium Mentor Support</li>
+                            <li>Career Counseling Sessions</li>
+                            <li>Priority Live Class Entry</li>
+                            <li>Internship Opportunities</li>
+                        </ul>
+                        <a href="enroll.html?pkg=combo" class="btn btn-primary" style="width: 100%; text-align: center; margin-top: 30px; box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);">Enroll All-in-One</a>
+                    </div>
+                </div>
+
+                <div class="section-header text-center" style="margin-top: 100px;">
+                    <h3>Why Choose BIeasy Packages?</h3>
+                    <div class="grid-subjects" style="margin-top: 40px;">
+                        <div class="card" style="padding: 24px;">
+                            <h4>Recorded Access</h4>
+                            <p class="text-muted">Watch any class, any time. Rewind and replay as many times as you need.</p>
+                        </div>
+                        <div class="card" style="padding: 24px;">
+                            <h4>Live Interaction</h4>
+                            <p class="text-muted">Join live Zoom sessions to interact with teachers and clear your doubts instantly.</p>
+                        </div>
+                        <div class="card" style="padding: 24px;">
+                            <h4>Expert Mentors</h4>
+                            <p class="text-muted">Learn from the best in the industry with years of teaching experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo" style="color: white;">BIeasy</a>
+                <p>Empowering students and teachers through quality online education.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Platform</h4>
+                <ul>
+                    <li><a href="subjects.html">Subjects</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li>📧 support@bieasy.com</li>
+                    <li>📞 +91 98765 43210</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom text-center">
+            <p>&copy; 2026 BIeasy Educational Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

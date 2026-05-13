@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | BIeasy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Check for mock session before page load
+        const student = JSON.parse(localStorage.getItem('bieasy_student'));
+        if (!student || !student.isLoggedIn) {
+            window.location.href = 'login.html';
+        }
+    </script>
+    <style>
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+        .dashboard-sidebar {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            height: fit-content;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 120px;
+        }
+        .sidebar-menu li {
+            margin-bottom: 8px;
+        }
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: var(--radius-md);
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background: var(--background);
+            color: var(--primary);
+        }
+        .sidebar-menu a.active {
+            background: var(--primary-light);
+            color: white;
+        }
+        .course-card-dash {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius-md);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        .progress-bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#1e40af"/>
+                    <path d="M12 28V12H16C18.2091 12 20 13.7909 20 16C20 18.2091 18.2091 20 16 20H12M12 20H16C18.2091 20 20 21.7909 20 24C20 26.2091 18.2091 28 16 28H12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M28 12V28" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <span>BIeasy</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="subjects.html">Subjects</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="teacher-portal.html">Teachers</a></li>
+                <li><a href="student-portal.html" class="active">Student Portal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-container">
+            <aside class="dashboard-sidebar">
+                <div style="text-align: center; margin-bottom: 32px;">
+                    <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--primary-light); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; font-weight: 700;">A</div>
+                    <h3>Aditya R.</h3>
+                    <p class="text-muted" style="font-size: 0.85rem;">MPC Student Bundle</p>
+                </div>
+                <ul class="sidebar-menu">
+                    <li><a href="#" class="active"><span>📊</span> Dashboard</a></li>
+                    <li><a href="#"><span>📚</span> My Courses</a></li>
+                    <li><a href="#"><span>📹</span> Recorded Sessions</a></li>
+                    <li><a href="#"><span>🔴</span> Live Classes</a></li>
+                    <li><a href="certificate.html"><span>🎓</span> Certificates</a></li>
+                    <li><a href="#"><span>⚙️</span> Settings</a></li>
+                    <li style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <a href="#" id="logout-btn" style="color: var(--error);"><span>🚪</span> Logout</a>
+                    </li>
+                </ul>
+            </aside>
+
+            <section class="dashboard-content">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+                    <h2>Welcome back, Aditya!</h2>
+                    <span class="badge" style="background: var(--accent); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;">Online Now</span>
+                </div>
+
+                <div class="grid-subjects" style="margin-bottom: 40px; grid-template-columns: repeat(3, 1fr);">
+                    <div class="card" style="padding: 20px; text-align: center;">
+                        <h4 style="color: var(--primary);">4</h4>
+                        <p class="text-muted">Courses Active</p>
+                    </div>
+                    <div class="card" style="padding: 20px; text-align: center;">
+                        <h4 style="color: var(--accent);">75%</h4>
+                        <p class="text-muted">Overall Progress</p>
+                    </div>
+                    <div class="card" style="padding: 20px; text-align: center;">
+                        <h4 style="color: var(--primary);">12</h4>
+                        <p class="text-muted">Tests Taken</p>
+                    </div>
+                </div>
+
+                <h3>Continue Learning</h3>
+                <div style="margin-top: 20px;">
+                    <div class="course-card-dash">
+                        <div style="width: 60px; height: 60px; background: #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">∑</div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h4>Advanced Calculus</h4>
+                                <span>80%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 16px;">Resume</a>
+                    </div>
+
+                    <div class="course-card-dash">
+                        <div style="width: 60px; height: 60px; background: #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">⚛</div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h4>Modern Physics</h4>
+                                <span>60%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 16px;">Resume</a>
+                    </div>
+
+                    <div class="course-card-dash">
+                        <div style="width: 60px; height: 60px; background: #e2e8f0; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🧪</div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <h4>Organic Chemistry</h4>
+                                <span>45%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div>
+                        </div>
+                        <a href="#" class="btn btn-primary" style="padding: 8px 16px;">Resume</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px; background: var(--primary-dark); color: white; padding: 32px; border-radius: var(--radius-lg); display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3>Upcoming Live Class</h3>
+                        <p style="opacity: 0.8;">Mathematics: Integration Techniques</p>
+                        <p style="margin-top: 8px;"><strong>Today at 4:30 PM</strong></p>
+                    </div>
+                    <a href="#" class="btn btn-accent" style="color: var(--primary-dark);">Join Zoom Meeting</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer style="margin-top: 80px;">
+        <div class="container footer-bottom text-center">
+            <p>&copy; 2026 BIeasy Educational Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Logout logic
+        document.getElementById('logout-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('bieasy_student');
+            window.location.href = 'login.html';
+        });
+
+        // Update name if available
+        const studentData = JSON.parse(localStorage.getItem('bieasy_student'));
+        if (studentData && studentData.name) {
+            const nameElements = document.querySelectorAll('.dashboard-content h2, aside h3');
+            if (nameElements.length > 0) {
+                nameElements[0].innerText = `Welcome back, ${studentData.name.charAt(0).toUpperCase() + studentData.name.slice(1)}!`;
+                if (nameElements[1]) nameElements[1].innerText = studentData.name.charAt(0).toUpperCase() + studentData.name.slice(1);
+            }
+        }
+    </script>
+</body>
+</html>

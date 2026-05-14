@@ -86,58 +86,36 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll(); // Run once on load
 
-    // 6. Form Handling (AJAX)
+    // 6. Form Handling (Natural submission with FormSubmit)
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
+        form.addEventListener('submit', () => {
             const submitBtn = form.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.innerText;
-            
-            // Show loading state
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Sending...';
+            submitBtn.innerText = 'Redirecting...';
 
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
+            // Add dynamic _next field for formsubmit.co
+            let nextInput = form.querySelector('input[name="_next"]');
+            if (!nextInput) {
+                nextInput = document.createElement('input');
+                nextInput.type = 'hidden';
+                nextInput.name = '_next';
+                form.appendChild(nextInput);
+            }
 
-            // Use FormSubmit.co AJAX
-            fetch(form.action, {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                if (response.ok) {
-                    if (form.id === 'enrollment-form') {
-                        // Save names for account creation
-                        const firstName = form.querySelector('#firstName').value;
-                        const lastName = form.querySelector('#lastName').value;
-                        sessionStorage.setItem('bieasy_temp_name', `${firstName} ${lastName}`);
-                        
-                        // Redirect to account creation for students
-                        const email = form.querySelector('input[type="email"]').value;
-                        window.location.href = `create-account.html?email=${encodeURIComponent(email)}`;
-                    } else {
-                        alert('Thank you! Your submission has been received.');
-                        form.reset();
-                    }
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error. Please try again or contact us directly.');
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerText = originalBtnText;
-            });
+            if (form.id === 'enrollment-form') {
+                // Save names for account creation
+                const firstName = form.querySelector('#firstName').value;
+                const lastName = form.querySelector('#lastName').value;
+                sessionStorage.setItem('bieasy_temp_name', `${firstName} ${lastName}`);
+                
+                // Redirect to account creation for students
+                const email = form.querySelector('input[type="email"]').value;
+                const nextUrl = window.location.origin + `/create-account.html?email=${encodeURIComponent(email)}`;
+                nextInput.value = nextUrl;
+            } else {
+                // Redirect back to current page
+                nextInput.value = window.location.href;
+            }
         });
     });
 });

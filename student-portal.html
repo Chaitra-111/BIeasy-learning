@@ -197,20 +197,36 @@
 
     <script src="app.js"></script>
     <script>
-        // Logout logic
+        // Logout logic with student permission
         document.getElementById('logout-btn').addEventListener('click', (e) => {
             e.preventDefault();
-            localStorage.removeItem('bieasy_student');
-            window.location.href = 'login.html';
+            const confirmLogout = window.confirm('Are you sure you want to log out?');
+            if (confirmLogout) {
+                localStorage.removeItem('bieasy_student');
+                window.location.href = 'login.html';
+            }
         });
 
-        // Update name if available
+        // Update student details if available
         const studentData = JSON.parse(localStorage.getItem('bieasy_student'));
-        if (studentData && studentData.name) {
+        if (studentData) {
+            // Update Avatar Initial
+            const avatar = document.querySelector('.dashboard-sidebar div[style*="border-radius: 50%"]');
+            if (avatar && studentData.name) {
+                avatar.innerText = studentData.name.charAt(0).toUpperCase();
+            }
+
+            // Update Names
             const nameElements = document.querySelectorAll('.dashboard-content h2, aside h3');
-            if (nameElements.length > 0) {
-                nameElements[0].innerText = `Welcome back, ${studentData.name.charAt(0).toUpperCase() + studentData.name.slice(1)}!`;
-                if (nameElements[1]) nameElements[1].innerText = studentData.name.charAt(0).toUpperCase() + studentData.name.slice(1);
+            if (nameElements.length > 0 && studentData.name) {
+                nameElements[0].innerText = `Welcome back, ${studentData.name}!`;
+                if (nameElements[1]) nameElements[1].innerText = studentData.name;
+            }
+
+            // Update Email/Bundle
+            const emailElement = document.querySelector('aside p.text-muted');
+            if (emailElement && studentData.email) {
+                emailElement.innerText = studentData.email;
             }
         }
     </script>

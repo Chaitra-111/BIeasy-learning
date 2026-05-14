@@ -114,6 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => {
                 if (response.ok) {
                     if (form.id === 'enrollment-form') {
+                        // Save names for account creation
+                        const firstName = form.querySelector('#firstName').value;
+                        const lastName = form.querySelector('#lastName').value;
+                        sessionStorage.setItem('bieasy_temp_name', `${firstName} ${lastName}`);
+                        
                         // Redirect to account creation for students
                         const email = form.querySelector('input[type="email"]').value;
                         window.location.href = `create-account.html?email=${encodeURIComponent(email)}`;

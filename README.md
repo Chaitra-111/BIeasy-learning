@@ -31,7 +31,9 @@ Built as a proper multi-page website using clean HTML5, CSS3, and Vanilla JavaSc
 
 ### 3. Student Features
 - **Subject Bundles:** Specialized MPC and BiPC packages with clear pricing and benefits.
-- **Student Portal:** A personal dashboard to track course progress and access live sessions.
+- **Enrollment Flow:** Complete enrollment system with package selection and account creation.
+- **Authentication:** Secure local login and registration system.
+- **Student Portal:** A personal dynamic dashboard displaying student name, active courses, and upcoming live classes.
 - **Professional Certification:** Automated certificate generation for course completion.
 
 ### 4. Teacher Features
@@ -39,6 +41,7 @@ Built as a proper multi-page website using clean HTML5, CSS3, and Vanilla JavaSc
 - **Application:** Clean, validated application form for aspiring mentors.
 
 ### 5. Technical Excellence
+- **Email Integration:** Forms connected via FormSubmit.co, sending directly to csarts3537@gmail.com.
 - **Mobile-First:** Fully responsive across all devices (Desktop, Tablet, Mobile).
 - **Sticky Header:** Smooth navigation with glassmorphism effects.
 - **SEO Ready:** Semantic HTML structure for better search visibility.

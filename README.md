@@ -41,16 +41,26 @@ Built as a proper multi-page website using clean HTML5, CSS3, and Vanilla JavaSc
 - **Application:** Clean, validated application form for aspiring mentors.
 
 ### 5. Technical Excellence
-- **Email Integration:** Forms connected via FormSubmit.co, sending directly to csarts3537@gmail.com.
+- **Email Integration:** Forms connected via FormSubmit.co by default. Alternatively, a custom `server.js` backend is provided for direct Nodemailer integration.
 - **Mobile-First:** Fully responsive across all devices (Desktop, Tablet, Mobile).
 - **Sticky Header:** Smooth navigation with glassmorphism effects.
 - **SEO Ready:** Semantic HTML structure for better search visibility.
 
 ## Setup Instructions
 
+### Option 1: Static Hosting (Default)
 1.  Open the `bieasy` folder.
 2.  Open `index.html` in any modern web browser to view the platform.
-3.  No installation or server setup required (static site compatible).
+3.  No installation or server setup required. Form submissions are handled via FormSubmit.co.
+
+### Option 2: Custom Local Backend
+If you wish to run the custom email backend:
+1. Ensure Node.js is installed.
+2. Open a terminal in the `bieasy` folder.
+3. Run `npm install` to install dependencies (express, nodemailer, cors).
+4. Edit `server.js` and provide your Gmail "App Password".
+5. Run `npm start` to launch the backend on `http://localhost:3000`.
+6. Edit the HTML forms to use `action="http://localhost:3000/api/send-email"`.
 
 ## Future Improvements
 - Integration with a backend for actual user authentication.
